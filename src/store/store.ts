@@ -23,6 +23,7 @@ class Store {
         return this.state
     }
 
+    /* FETCH POSTS */
     async fetchPosts() {
         const response = await axios.get<Post[]>('/posts')
 
@@ -38,6 +39,20 @@ class Store {
         }
         postsState.loaded = true
         this.state.posts = postsState
+    }
+
+    /* CREATE POSTS */
+    async createPost(post: Post) {
+        const res = await axios.post<Post>('/posts', post)
+        this.state.posts.all.set(post.id, post)
+        this.state.posts.ids.push(post.id)
+        console.log(res)
+        
+        /* for (const post of res.data) {
+            postsState.ids.push(post.id)
+        }
+        postsState.loaded = true
+        this.state.posts = postsState */
     }
 }
 

@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
 import NewPost from '../components/NewPost.vue'
+import Fetch from '../views/Fetch.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -14,10 +15,10 @@ const routes: Array<RouteRecordRaw> = [
     component: NewPost
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/fetch',
+    name: 'Fetch',
+    component: Fetch
+  },
 ]
 
 const router = createRouter({

@@ -29,18 +29,21 @@ export default defineComponent({
 
     async setup() {
         const store = useStore()
-       const currentPeriod = ref<Period>('today')
+        const currentPeriod = ref<Period>('today')
 
         if (!store.getState().posts?.loaded) {
             await store.fetchPosts()
         }
-
-        const allPosts: Post[] = store.getState().posts.ids.reduce((acc, id) => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-ignore
+        const allPosts: Post[] = store.getState().posts.ids.reduce<string[]>((acc, id) => {
             const thePost = store.getState().posts.all.get(id)
             if (!thePost) {
                 throw Error('This post was not found')
             }
-            return acc.concat(thePost)
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //@ts-ignore
+            return acc.concat((thePost), [])
         }, [])
 
         const periods = ref(['today', 'this week', 'this month'])

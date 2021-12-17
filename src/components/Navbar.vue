@@ -21,11 +21,11 @@
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
                 <a class="navbar-item">
-                    <router-link to="/">Home</router-link>|
+                    <router-link to="/">Home</router-link>
                 </a>
 
                 <a class="navbar-item">
-                    <router-link to="/about">About</router-link>
+                    <router-link to="/fetch">Prospects</router-link>
                 </a>
             </div>
 
